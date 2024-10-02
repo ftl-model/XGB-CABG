@@ -67,9 +67,12 @@ if st.button("Predict"):
 
 # Calculate SHAP values and display force plot 
     st.subheader("SHAP Force Plot Explanation") 
-    explainer = shap.TreeExplainer(model)    
-    shap_values = explainer.shap_values(pd.DataFrame(standardized_features, columns=feature_names))
+    explainer = shap.TreeExplainer(model) 
    
-    shap.force_plot(explainer.expected_value, shap_values[0], pd.DataFrame(standardized_features, columns=feature_names), matplotlib=True)   
+    shap_values = explainer.shap_values(pd.DataFrame(standardized_features, columns=feature_names))
+   # 将标准化前的原始数据存储在变量中
+    original_feature_values = pd.DataFrame(features, columns=feature_names)
+
+    shap.force_plot(explainer.expected_value, shap_values[0], original_feature_values, matplotlib=True)   
     plt.savefig("shap_force_plot.png", bbox_inches='tight', dpi=1200)
     st.image("shap_force_plot.png", caption='SHAP Force Plot Explanation')
