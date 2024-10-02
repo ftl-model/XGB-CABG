@@ -1,3 +1,4 @@
+
 import streamlit as st
 import joblib
 import numpy as np
@@ -16,15 +17,15 @@ feature_names = [ "bmi", " EF ", "LVDs ", " preop_max_Cr ", "lymphocyte", "Triio
 ## Streamlit user interface
 st.title("LCOS Predictor")
 
-bmi=st.number_input(“BMI:”,min_value=0.00,max_value=100.00,value=25.00)
-EF=st.number_input(“EF:”,min_value=0,max_value=150,value=62)
-LVDs=st.number_input(“LVDs:”,min_value=0.00,max_value=100.00,value=41.00)
-preop_max_Cr=st.number_input(“Creatinine (μmol/L):”,min_value=0.00,max_value=500.00,value=141.40)
-lymphocyte=st.number_input(“Lymphocyte (109/L):”,min_value=0.00,max_value=100.00,value=19.10)
-Triiodothyronine=st.number_input(“Triiodothyronine (nmol/L):”,min_value=0.00,max_value=10.00,value=1.25)
-direct_bilirubin=st.number_input(“Direct bilirubin (μmol/L):”,min_value=0.00,max_value=50.00,value=1.90)
-BP_55_time=st.number_input(“Time for MAP <55 (min):”,min_value=0.00,max_value=1000.00,value=75.00)
-Lac=st.number_input(“Lactate (mmol/L):”,min_value=0.00,max_value=50.00,value=6.70)
+bmi=st.number_input("BMI:",min_value=0.00,max_value=100.00,value=25.00)
+EF=st.number_input("EF:",min_value=0,max_value=150,value=62)
+LVDs=st.number_input("LVDs:",min_value=0.00,max_value=100.00,value=41.00)
+preop_max_Cr=st.number_input("Creatinine (μmol/L):",min_value=0.00,max_value=500.00,value=141.40)
+lymphocyte=st.number_input("Lymphocyte (109/L):",min_value=0.00,max_value=100.00,value=19.10)
+Triiodothyronine=st.number_input("Triiodothyronine (nmol/L):",min_value=0.00,max_value=10.00,value=1.25)
+direct_bilirubin=st.number_input("Direct bilirubin (μmol/L):",min_value=0.00,max_value=50.00,value=1.90)
+BP_55_time=st.number_input("Time for MAP <55 (min):",min_value=0.00,max_value=1000.00,value=75.00)
+Lac=st.number_input("Lactate (mmol/L):",min_value=0.00,max_value=50.00,value=6.70)
 
 # Process inputs and make predictions
 feature_values = [ bmi,  EF , LVDs ,  preop_max_Cr , lymphocyte, Triiodothyronine, direct_bilirubin ,  BP_55_time, Lac]
